@@ -1,0 +1,32 @@
+.product-details {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .product-details img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .product-details h3 {
+    margin-top: 0;
+  }
+  
+  .product-details button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .product-details button:hover {
+    background-color: #2980b9;
+  }
+  
+  @media (max-width: 768px) {
+    .product-details {
+      margin: 10px;
+    }
+  }
+  
