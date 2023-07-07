@@ -1,33 +1,21 @@
-import React, { useState } from 'react';
+// App.js
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
+import { CartProvider } from './components/CartContext';
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
-  };
-
-  const removeFromCart = (productId) => {
-    setCartItems(cartItems.filter((item) => item.id !== productId));
-  };
-
   return (
     <Router>
-      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
-      <Routes>
-        <Route
-          path="/"
-          element={<ProductList addToCart={addToCart} />}
-        />
-        <Route
-          path="/product/:id"
-          element={<ProductDetails addToCart={addToCart} />}
-        />
-      </Routes>
+      <CartProvider>
+        <Cart />
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </CartProvider>
     </Router>
   );
 };
