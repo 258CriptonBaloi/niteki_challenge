@@ -22,7 +22,7 @@ const ProductList = () => {
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-item">
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/${product.id}`} className='links'>
               <img src={product.image} alt={product.name} />
               <h3>{product.name}</h3>
               <p>Preço: {product.price} MZN</p>
