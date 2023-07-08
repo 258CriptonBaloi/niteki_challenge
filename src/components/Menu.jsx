@@ -1,29 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Menu.css';
 
-const Menu = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+function Menu(){
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
   };
 
-  return (
-    <div className={`menu ${menuOpen ? 'open' : ''}`}>
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {menuOpen ? 'Fechar' : 'Menu'}
-      </button>
-      <ul className="menu-items">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/cart">Carinho</Link>
-        </li>
-      </ul>
-    </div>
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener('resize', showButton);
+
+  return(
+    <>
+      <nav className='navbar'>
+        <div className='navbar-container'>
+
+        <div className='menu-icon' onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
+
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/Cart'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Carinho
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
-};
+
+}
+
+
 
 export default Menu;
