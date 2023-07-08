@@ -1,3 +1,7 @@
+p{
+  color: black;
+}
+
 h2 {
   display: flex;
   align-items: center;
@@ -21,11 +25,12 @@ h2 {
   border: 1px solid #ccc;
   padding: 20px;
   text-align: center;
+  text-decoration: none; 
 }
 
 .product-item h3 {
+  color: black;
   margin-top: 0;
-  text-decoration: none; /* Remova essa linha */
 }
 
 .product-item img {
