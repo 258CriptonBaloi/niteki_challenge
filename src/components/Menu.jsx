@@ -28,7 +28,7 @@ function Menu(){
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-              <img src='./images/logoazul.png' width={98} height={92} alt='logotipo'/>
+              <img src='./images/logo.png' width={98} height={92} alt='logotipo'/>
           </Link>
 
           <div className='menu-icon' onClick={handleClick}>
@@ -47,7 +47,7 @@ function Menu(){
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Carinho
+                Favoritos
               </Link>
             </li>
           </ul>

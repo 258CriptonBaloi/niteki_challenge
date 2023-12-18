@@ -14,9 +14,9 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <h2>Carrinho de Compras</h2>
+      <h2>Lista de Favoritos</h2>
       {cartItems.length === 0 ? (
-        <p>O carrinho está vazio.</p>
+        <p>A lista de favoritos está vazia.</p>
       ) : (
         <ul>
           {cartItems.map((item) => (
